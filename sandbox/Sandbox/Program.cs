@@ -5,36 +5,27 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
-        this is how you do mulitple line comments
-        */
+        Movie favoriteMovie = new Movie();
+        favoriteMovie._title = "Star Wars";
+        favoriteMovie._rating = "PG-13";
+        favoriteMovie._year = 1977;
+        favoriteMovie._runtime = 150;
 
-        //Adj stands for adjective
-        string adj = GetAdjective();
-        string noun = GetNoun();
-        int number = Multiply(17, 44);
-        Console.WriteLine($"I looked out the window and saw {number} {adj} {noun}.");
+        Movie otherMovie = new Movie();
+        otherMovie._runtime = 162;
+        otherMovie._title = "Avatar";
+        otherMovie._rating = "PG-13";
+        otherMovie._year = 2009;
+
+        Console.WriteLine(favoriteMovie._rating);
+        displayMovie(favoriteMovie);
+        displayMovie(otherMovie);
+
+        favoriteMovie.Display();
     }
 
-    static int Multiply(int number1, int number2)
+    static void displayMovie(Movie aMovie)
     {
-        int result = number1 * number2;
-        return result;
-    }
-
-    static string GetAdjective()
-    {
-        List<string> words = new List<string>();
-        words.Add("blue");
-        words.Add("green");
-        words.Add("small");
-        string adj = words[2];
-        return adj;
-    }
-
-    static string GetNoun()
-    {
-        string word = "bird";
-        return word;
+        Console.WriteLine($"{aMovie._title} - {aMovie._year}");
     }
 }
