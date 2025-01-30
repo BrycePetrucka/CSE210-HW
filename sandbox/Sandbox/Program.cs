@@ -5,7 +5,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        
         Movie favoriteMovie = new Movie();
         favoriteMovie._title = "Star Wars";
         favoriteMovie._rating = "PG-13";

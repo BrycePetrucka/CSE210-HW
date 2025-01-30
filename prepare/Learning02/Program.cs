@@ -34,11 +34,16 @@ class Program
 
                 Job newJob = new Job();
                 newJob._company = company;
+                newJob._jobTitle = position;
+                newJob._startYear = 2015;
+                newJob._endYear = 2020;
 
+                theResume._jobs.Add(newJob);
             }
             else if (choice == "2")
             {
                 //display resume
+                theResume.DisplayResume();
             }
             else if (choice == "3")
             {
