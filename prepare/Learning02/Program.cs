@@ -55,7 +55,7 @@ class Program
                 // tell them to try again
                 Console.WriteLine("Sorry that was not one of the options, try a different number");
             }
-        /*
+        
         Job job1 = new Job();
         job1._company = "Hollywood Feed";
         job1._endYear = 2024;
@@ -74,7 +74,7 @@ class Program
         yourResume._jobs.Add(job2);
 
         yourResume.DisplayResume();
-        */
+        
 
         }
     }
