@@ -15,6 +15,8 @@ public class Journal
         }
         
     }
+
+    
     public void SaveEnteries()
     {
         Console.Write("What do you want your file to be called?");
@@ -27,10 +29,13 @@ public class Journal
                 }
             }
     }
+
+
     public void LoadEnteries()
     {
         Console.Write("What file would you like to load? ");
         string loadFile = Console.ReadLine();
+        Console.WriteLine("");
         string[] lines = System.IO.File.ReadAllLines(loadFile);
         foreach (string line in lines)
         {
@@ -41,6 +46,7 @@ public class Journal
             string entry = parts[2];
 
             Console.WriteLine($"{dateTime}, {prompt} \n {entry}");
+            Console.WriteLine("");
         }
     }
     
