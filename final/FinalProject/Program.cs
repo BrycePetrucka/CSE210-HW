@@ -38,21 +38,21 @@ class Program
         {
             playerMoves = new Moves(chosenPokemon);
             playerPokemon = new Charizard();
-            playerHP = playerPokemon._hp;
+            playerHP = playerPokemon.GetHP();
             playerCurrentHP = playerHP;
         }
         else if (chosenPokemon == "Blastoise")
         {
             playerMoves = new Moves(chosenPokemon);
             playerPokemon = new Blastoise();
-            playerHP = playerPokemon._hp;
+            playerHP = playerPokemon.GetHP();
             playerCurrentHP = playerHP;
         }
         else if (chosenPokemon == "Venasaur")
         {
             playerMoves = new Moves(chosenPokemon);
             playerPokemon = new Venasaur();
-            playerHP = playerPokemon._hp;
+            playerHP = playerPokemon.GetHP();
             playerCurrentHP = playerHP;
         }
 
@@ -60,27 +60,27 @@ class Program
         {
             opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Charizard();
-            opponentHP = opponentPokemon._hp;
+            opponentHP = opponentPokemon.GetHP();
             opponentCurrentHp = opponentHP;
         }
         else if (enemyPokemon == "Blastoise")
         {
             opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Blastoise();
-            opponentHP = opponentPokemon._hp;
+            opponentHP = opponentPokemon.GetHP();
             opponentCurrentHp = opponentHP;
         }
         else if (enemyPokemon == "Venasaur")
         {
             opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Venasaur();
-            opponentHP = opponentPokemon._hp;
+            opponentHP = opponentPokemon.GetHP();
             opponentCurrentHp = opponentHP;
         }
 
         while (battle)
         {
-            if (playerPokemon._speed > opponentPokemon._speed)
+            if (playerPokemon.GetSpeed() > opponentPokemon.GetSpeed())
             {
                 // this code is the logic for your move to function
 
@@ -91,13 +91,13 @@ class Program
                 string physicalOrSpecial = playerMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon._attack;
-                    defenseStat = opponentPokemon._def;
+                    attackStat = playerPokemon.GetAttack();
+                    defenseStat = opponentPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon._specialAttack;
-                    defenseStat = opponentPokemon._specialDefense;
+                    attackStat = playerPokemon.GetSpecialAttack();
+                    defenseStat = opponentPokemon.GetSpecialDefense();
                 }
 
                 Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);
@@ -127,13 +127,13 @@ class Program
                 physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon._attack;
-                    defenseStat = opponentPokemon._def;
+                    attackStat = playerPokemon.GetAttack();
+                    defenseStat = opponentPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon._specialAttack;
-                    defenseStat = opponentPokemon._specialDefense;
+                    attackStat = playerPokemon.GetSpecialAttack();
+                    defenseStat = opponentPokemon.GetSpecialDefense();
                 }
 
                 Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
@@ -163,13 +163,13 @@ class Program
                 string physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon._attack;
-                    defenseStat = opponentPokemon._def;
+                    attackStat = playerPokemon.GetAttack();
+                    defenseStat = opponentPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon._specialAttack;
-                    defenseStat = opponentPokemon._specialDefense;
+                    attackStat = playerPokemon.GetSpecialAttack();
+                    defenseStat = opponentPokemon.GetSpecialDefense();
                 }
 
                 Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
@@ -199,13 +199,13 @@ class Program
                 physicalOrSpecial = playerMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon._attack;
-                    defenseStat = opponentPokemon._def;
+                    attackStat = playerPokemon.GetAttack();
+                    defenseStat = opponentPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon._specialAttack;
-                    defenseStat = opponentPokemon._specialDefense;
+                    attackStat = playerPokemon.GetSpecialAttack();
+                    defenseStat = opponentPokemon.GetSpecialDefense();
                 }
 
                 Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);

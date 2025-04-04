@@ -5,14 +5,39 @@ using System.Xml.Serialization;
 
 public class Pokemon
 {
-    public List<string> _pokemonList = new List<string>{"Charizard", "Blastoise", "Venasaur"};
+    private List<string> _pokemonList = new List<string>{"Charizard", "Blastoise", "Venasaur"};
     public string _name;
-    public int _hp; //Hit points
-    public int _def; //Defense stat that deals with the attack stat
-    public int _specialDefense; // Defense stat that deals with attacks using special attack
-    public int _speed; //This will determine who goes first
-    public int _attack; //Regular attack stat
-    public int _specialAttack; //Special attack stat
+    protected int _hp; //Hit points
+    protected int _def; //Defense stat that deals with the attack stat
+    protected int _specialDefense; // Defense stat that deals with attacks using special attack
+    protected int _speed; //This will determine who goes first
+    protected int _attack; //Regular attack stat
+    protected int _specialAttack; //Special attack stat
+
+    public int GetHP()
+    {
+        return _hp;
+    }
+    public int GetDef()
+    {
+        return _def;
+    }
+    public int GetSpecialDefense()
+    {
+        return _specialDefense;
+    }
+    public int GetSpeed()
+    {
+        return _speed;
+    }
+    public int GetAttack()
+    {
+        return _attack;
+    }
+    public int GetSpecialAttack()
+    {
+        return _specialAttack;
+    }
 
     public string DisplayPokemon()
     {
