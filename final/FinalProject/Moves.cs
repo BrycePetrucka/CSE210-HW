@@ -51,6 +51,26 @@ public class Moves
         return chosenMove;
     }
 
+    public string ChooseEnemyMove()
+    {
+        Random random = new Random();
+        int randomNumber = random.Next(1,5);
+        string chosenMove = "";
+
+        int counter = 1;
+        foreach (string line in _moves)
+        {
+            string[] new_line = line.Split(';');
+            if (randomNumber == counter)
+            {
+                chosenMove = new_line[MOVE_NAME];
+            }
+            counter += 1;
+        }
+        Console.WriteLine($"{chosenMove}");
+        return chosenMove;
+    }
+
     public string GetPhysicalOrSpecial(string moveName)
     {
         string phyOrSpe = "";

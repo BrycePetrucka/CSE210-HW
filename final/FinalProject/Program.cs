@@ -58,21 +58,21 @@ class Program
 
         if (enemyPokemon == "Charizard")
         {
-            opponentMoves = new Moves(chosenPokemon);
+            opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Charizard();
             opponentHP = opponentPokemon._hp;
             opponentCurrentHp = opponentHP;
         }
         else if (enemyPokemon == "Blastoise")
         {
-            opponentMoves = new Moves(chosenPokemon);
+            opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Blastoise();
             opponentHP = opponentPokemon._hp;
             opponentCurrentHp = opponentHP;
         }
         else if (enemyPokemon == "Venasaur")
         {
-            opponentMoves = new Moves(chosenPokemon);
+            opponentMoves = new Moves(enemyPokemon);
             opponentPokemon = new Venasaur();
             opponentHP = opponentPokemon._hp;
             opponentCurrentHp = opponentHP;
@@ -82,6 +82,8 @@ class Program
         {
             if (playerPokemon._speed > opponentPokemon._speed)
             {
+                // this code is the logic for your move to function
+
                 string chosenMove = playerMoves.ChooseMove();
                 int accuracy = playerMoves.GetAccuracy(chosenMove);
                 int power = playerMoves.GetMovePower(chosenMove);
@@ -97,18 +99,127 @@ class Program
                     defenseStat = opponentPokemon._specialDefense;
                 }
 
-                Battle _myTurn = new Battle(chosenPokemon, opponentHP, power, attackStat, defenseStat, accuracy);
+                Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);
                 damage = _myTurn.DamageCalculation();
 
                 opponentCurrentHp = opponentCurrentHp - damage;
 
                 Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
                 Console.WriteLine($"You deal {damage} damage");
-                Console.WriteLine($"{enemyPokemon}: {opponentCurrentHp}/{opponentHP}");
+                if (opponentCurrentHp <= 0)
+                {
+                    Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
+                    Console.WriteLine("You win!");
+                    battle = false;
+                }
+                else
+                {
+                    Console.WriteLine($"{enemyPokemon}: {opponentCurrentHp}/{opponentHP}");
+                }
+
+                // the following code is for the enemy to pick a move and use it
+
+                chosenMove = opponentMoves.ChooseEnemyMove();
+                accuracy = opponentMoves.GetAccuracy(chosenMove);
+                power = opponentMoves.GetMovePower(chosenMove);
+                physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
+                if (physicalOrSpecial == "phy")
+                {
+                    attackStat = playerPokemon._attack;
+                    defenseStat = opponentPokemon._def;
+                }
+                else
+                {
+                    attackStat = playerPokemon._specialAttack;
+                    defenseStat = opponentPokemon._specialDefense;
+                }
+
+                Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
+                damage = _enemyTurn.DamageCalculation();
+
+                playerCurrentHP = playerCurrentHP - damage;
+
+                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
+                Console.WriteLine($"Your opponent dealt {damage} damage");
+                if (playerCurrentHP <= 0)
+                {
+                    Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
+                    Console.WriteLine("You lose, better luck next time.");
+                    battle = false;
+                }
+                else
+                {
+                    Console.WriteLine($"{playerPokemon}: {playerCurrentHP}/{playerHP}");
+                }
             }
             else
             {
-                Console.WriteLine("You are slower");
+                string chosenMove = opponentMoves.ChooseEnemyMove();
+                int accuracy = opponentMoves.GetAccuracy(chosenMove);
+                int power = opponentMoves.GetMovePower(chosenMove);
+                string physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
+                if (physicalOrSpecial == "phy")
+                {
+                    attackStat = playerPokemon._attack;
+                    defenseStat = opponentPokemon._def;
+                }
+                else
+                {
+                    attackStat = playerPokemon._specialAttack;
+                    defenseStat = opponentPokemon._specialDefense;
+                }
+
+                Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
+                damage = _enemyTurn.DamageCalculation();
+
+                playerCurrentHP = playerCurrentHP - damage;
+
+                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
+                Console.WriteLine($"Your opponent dealt {damage} damage");
+                if (playerCurrentHP <= 0)
+                {
+                    Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
+                    Console.WriteLine("You lose, better luck next time.");
+                    battle = false;
+                }
+                else
+                {
+                    Console.WriteLine($"{playerPokemon}: {playerCurrentHP}/{playerHP}");
+                }
+                // this logic starts your turn
+
+                chosenMove = playerMoves.ChooseMove();
+                accuracy = playerMoves.GetAccuracy(chosenMove);
+                power = playerMoves.GetMovePower(chosenMove);
+                physicalOrSpecial = playerMoves.GetPhysicalOrSpecial(chosenMove);
+                if (physicalOrSpecial == "phy")
+                {
+                    attackStat = playerPokemon._attack;
+                    defenseStat = opponentPokemon._def;
+                }
+                else
+                {
+                    attackStat = playerPokemon._specialAttack;
+                    defenseStat = opponentPokemon._specialDefense;
+                }
+
+                Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);
+                damage = _myTurn.DamageCalculation();
+
+                opponentCurrentHp = opponentCurrentHp - damage;
+
+                Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
+                Console.WriteLine($"You deal {damage} damage");
+                if (opponentCurrentHp <= 0)
+                {
+                    Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
+                    Console.WriteLine("You win!");
+                    battle = false;
+                }
+                else
+                {
+                    Console.WriteLine($"{enemyPokemon}: {opponentCurrentHp}/{opponentHP}");
+                }
             }
         }
     }
