@@ -44,6 +44,8 @@ public class Pokemon
             else
             {
                 Console.WriteLine("Please choose one of the options.");
+                Console.Write("Choose your pokemon: ");
+                choice = Console.ReadLine();
             }
         }
         return chosenPokemon;
