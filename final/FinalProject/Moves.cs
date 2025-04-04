@@ -67,7 +67,6 @@ public class Moves
             }
             counter += 1;
         }
-        Console.WriteLine($"{chosenMove}");
         return chosenMove;
     }
 

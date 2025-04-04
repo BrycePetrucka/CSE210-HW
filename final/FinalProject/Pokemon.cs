@@ -16,6 +16,7 @@ public class Pokemon
 
     public string DisplayPokemon()
     {
+        Console.Clear();
         Console.WriteLine("Please type the number that matches the pokemon you want.");
         int counter = 0;
         foreach (string current in _pokemonList)

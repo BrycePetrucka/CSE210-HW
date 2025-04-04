@@ -85,6 +85,7 @@ class Program
                 // this code is the logic for your move to function
 
                 string chosenMove = playerMoves.ChooseMove();
+                Console.Clear();
                 int accuracy = playerMoves.GetAccuracy(chosenMove);
                 int power = playerMoves.GetMovePower(chosenMove);
                 string physicalOrSpecial = playerMoves.GetPhysicalOrSpecial(chosenMove);
@@ -106,6 +107,7 @@ class Program
 
                 Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
                 Console.WriteLine($"You deal {damage} damage");
+                Console.WriteLine();
                 if (opponentCurrentHp <= 0)
                 {
                     Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
@@ -141,6 +143,7 @@ class Program
 
                 Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
                 Console.WriteLine($"Your opponent dealt {damage} damage");
+                Console.WriteLine();
                 if (playerCurrentHP <= 0)
                 {
                     Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
@@ -176,6 +179,7 @@ class Program
 
                 Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
                 Console.WriteLine($"Your opponent dealt {damage} damage");
+                Console.WriteLine();
                 if (playerCurrentHP <= 0)
                 {
                     Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
@@ -189,6 +193,7 @@ class Program
                 // this logic starts your turn
 
                 chosenMove = playerMoves.ChooseMove();
+                Console.Clear();
                 accuracy = playerMoves.GetAccuracy(chosenMove);
                 power = playerMoves.GetMovePower(chosenMove);
                 physicalOrSpecial = playerMoves.GetPhysicalOrSpecial(chosenMove);
@@ -210,6 +215,7 @@ class Program
 
                 Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
                 Console.WriteLine($"You deal {damage} damage");
+                Console.WriteLine();
                 if (opponentCurrentHp <= 0)
                 {
                     Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
