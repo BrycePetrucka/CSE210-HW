@@ -80,6 +80,7 @@ class Program
 
         while (battle)
         {
+            // this else if statement determines who gets to attack first
             if (playerPokemon.GetSpeed() > opponentPokemon.GetSpeed())
             {
                 // this code is the logic for your move to function
@@ -101,18 +102,25 @@ class Program
                 }
 
                 Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);
+
+                Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
+
                 damage = _myTurn.DamageCalculation();
 
                 opponentCurrentHp = opponentCurrentHp - damage;
 
-                Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
-                Console.WriteLine($"You deal {damage} damage");
+                if (damage != 0)
+                {
+                    Console.WriteLine($"You deal {damage} damage");
+                }
                 Console.WriteLine();
+
                 if (opponentCurrentHp <= 0)
                 {
                     Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
                     Console.WriteLine("You win!");
                     battle = false;
+                    break;
                 }
                 else
                 {
@@ -127,28 +135,36 @@ class Program
                 physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon.GetAttack();
-                    defenseStat = opponentPokemon.GetDef();
+                    attackStat = opponentPokemon.GetAttack();
+                    defenseStat = playerPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon.GetSpecialAttack();
-                    defenseStat = opponentPokemon.GetSpecialDefense();
+                    attackStat = opponentPokemon.GetSpecialAttack();
+                    defenseStat = playerPokemon.GetSpecialDefense();
                 }
 
                 Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
+
+                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
+
                 damage = _enemyTurn.DamageCalculation();
 
                 playerCurrentHP = playerCurrentHP - damage;
 
-                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
-                Console.WriteLine($"Your opponent dealt {damage} damage");
+                if (damage != 0)
+                {
+                    Console.WriteLine($"Your opponent dealt {damage} damage");
+                }
+                
                 Console.WriteLine();
+
                 if (playerCurrentHP <= 0)
                 {
                     Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
                     Console.WriteLine("You lose, better luck next time.");
                     battle = false;
+                    break;
                 }
                 else
                 {
@@ -163,34 +179,43 @@ class Program
                 string physicalOrSpecial = opponentMoves.GetPhysicalOrSpecial(chosenMove);
                 if (physicalOrSpecial == "phy")
                 {
-                    attackStat = playerPokemon.GetAttack();
-                    defenseStat = opponentPokemon.GetDef();
+                    attackStat = opponentPokemon.GetAttack();
+                    defenseStat = playerPokemon.GetDef();
                 }
                 else
                 {
-                    attackStat = playerPokemon.GetSpecialAttack();
-                    defenseStat = opponentPokemon.GetSpecialDefense();
+                    attackStat = opponentPokemon.GetSpecialAttack();
+                    defenseStat = playerPokemon.GetSpecialDefense();
                 }
 
                 Battle _enemyTurn = new Battle(power, attackStat, defenseStat, accuracy);
+
+                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
+
                 damage = _enemyTurn.DamageCalculation();
 
                 playerCurrentHP = playerCurrentHP - damage;
 
-                Console.WriteLine($"{enemyPokemon} used {chosenMove}!");
-                Console.WriteLine($"Your opponent dealt {damage} damage");
+                if (damage != 0)
+                {
+                    Console.WriteLine($"Your opponent dealt {damage} damage");
+                }
+                
                 Console.WriteLine();
+
                 if (playerCurrentHP <= 0)
                 {
                     Console.WriteLine($"{playerPokemon}: 0/{playerHP}");
                     Console.WriteLine("You lose, better luck next time.");
                     battle = false;
+                    break;
                 }
                 else
                 {
                     Console.WriteLine($"{playerPokemon}: {playerCurrentHP}/{playerHP}");
                 }
-                // this logic starts your turn
+
+                // this code starts your turn
 
                 chosenMove = playerMoves.ChooseMove();
                 Console.Clear();
@@ -209,18 +234,25 @@ class Program
                 }
 
                 Battle _myTurn = new Battle(power, attackStat, defenseStat, accuracy);
+
+                Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
+
                 damage = _myTurn.DamageCalculation();
 
                 opponentCurrentHp = opponentCurrentHp - damage;
 
-                Console.WriteLine($"{chosenPokemon} use {chosenMove}!");
-                Console.WriteLine($"You deal {damage} damage");
+                if (damage != 0)
+                {
+                    Console.WriteLine($"You deal {damage} damage");
+                }
                 Console.WriteLine();
+                
                 if (opponentCurrentHp <= 0)
                 {
                     Console.WriteLine($"{enemyPokemon}: 0/{opponentHP}");
                     Console.WriteLine("You win!");
                     battle = false;
+                    break;
                 }
                 else
                 {

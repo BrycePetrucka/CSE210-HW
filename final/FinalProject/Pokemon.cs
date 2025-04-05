@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 public class Pokemon
 {
     private List<string> _pokemonList = new List<string>{"Charizard", "Blastoise", "Venasaur"};
-    public string _name;
+    protected string _name;
     protected int _hp; //Hit points
     protected int _def; //Defense stat that deals with the attack stat
     protected int _specialDefense; // Defense stat that deals with attacks using special attack
@@ -74,6 +74,7 @@ public class Pokemon
                 choice = Console.ReadLine();
             }
         }
+        Console.Clear();
         return chosenPokemon;
     }
 

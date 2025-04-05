@@ -15,7 +15,27 @@ public class Battle
 
     public int DamageCalculation()
     {
-        int damage = ((((2 * 50 / 5) + 2) * _movePower * (_attackingStat / _defendingStat)) / 50) + 2;
+        int damage = 0;
+        // this random is used to check if the move misses based of its accuracy
+        Random random = new Random();
+        int accuracyChance = random.Next(1,101);
+
+        int critChance = random.Next(1,11);
+
+        if (accuracyChance <= _accuracy && critChance == 10)
+        { 
+            damage = (int)((((2 * 50 * 2 / 5) + 2) * _movePower * ((float)_attackingStat / (float)_defendingStat)) / 50) + 2; 
+            Console.WriteLine("A critical hit!");
+        }
+        else if (accuracyChance <= _accuracy)
+        {
+            damage = (int)(((((2 * 50 / 5) + 2) * _movePower * ((float)_attackingStat / (float)_defendingStat)) / 50) + 2);
+
+        }
+        else
+        {
+            Console.WriteLine("The attack missed!");
+        }
         return damage;
     }
 }

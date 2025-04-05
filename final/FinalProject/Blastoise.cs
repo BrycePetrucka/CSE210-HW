@@ -1,6 +1,5 @@
 public class Blastoise : Pokemon
 {
-
     public Blastoise() : base()
     {
         _name = "Blastoise";
@@ -11,5 +10,4 @@ public class Blastoise : Pokemon
         _attack = 83;
         _specialAttack = 85;
     }
-    
 }

@@ -1,6 +1,5 @@
 public class Venasaur : Pokemon
 {
-
     public Venasaur() : base()
     {
         _name = "Venasaur";
@@ -10,6 +9,5 @@ public class Venasaur : Pokemon
         _speed = 80;
         _attack = 82;
         _specialAttack = 100;
-    }
-    
+    } 
 }

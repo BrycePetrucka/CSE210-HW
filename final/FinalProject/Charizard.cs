@@ -1,6 +1,5 @@
 public class Charizard : Pokemon
 {
-
     public Charizard() : base()
     {
         _name = "Charizard";
@@ -11,5 +10,4 @@ public class Charizard : Pokemon
         _attack = 84;
         _specialAttack = 109;
     }
-    
 }
