@@ -7,27 +7,30 @@ public class Breathing : Activity
 
     public Breathing()
     {
-        _name = "Breathing activity";
-        _description = "";
+        _name = "Breathing Activity";
+        _description = "This activity is aimed at helping you to control your breathing in order to help calm down negative emotions like stress and anxiety. Please follow the instructions as they appear on the screen.";
     }
 
     public void RunBreathing()
     {
         LoadingAnimation();
-        
-        bool run = true;
-        while (run == true)
+        int setTime = StartingMessage(_name, _description);
+        _endTime = GetDuration(setTime);
+        int counter = 0;
+
+        while (DateTime.Now < _endTime)
         {
-            // insert timer
-            if (_time != 0)
-            {
-                Console.WriteLine("Breathe in");
-                Thread.Sleep(5000);
-                Console.WriteLine();
-                Console.WriteLine("Breathe out");
-                Thread.Sleep(6000);
-                Console.WriteLine();
-            }
+            Console.WriteLine();
+            Console.Write("Breathe in: ");
+            CountdownAnimation(5);
+            Console.WriteLine();
+            Console.Write("Breathe out: ");
+            CountdownAnimation(6);
+            Console.WriteLine();
+            counter += 1;
         }
+        Console.WriteLine();
+        EndingMessage(setTime, _name);
+        Console.Clear();
     }
 }

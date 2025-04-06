@@ -16,23 +16,14 @@ class Program
         }
 
         bool run = true;
-
-        while (run == true)
+        while (run)
         {
             DisplayMenu();
             string userChoice = Console.ReadLine();
-            Console.WriteLine("How long would you like to do the activity in second? ");
-            string setTime = Console.ReadLine();
-            int time = int.Parse(setTime);
-
+            
             Breathing breathe = new Breathing();
             Listing list = new Listing();
             Reflecting reflect = new Reflecting();
-
-            // DateTime startingtime = DateTime.Now;
-            // DateTime endTime = startingtime.AddSeconds(time);
-            // while (DateTime.Now < endingTime)
-
 
             if (userChoice == "1")
             {
@@ -54,7 +45,7 @@ class Program
             {
                 Console.WriteLine("Please enter a valid option. (1, 2, 3, or 4)");
             }
-        }
-        
+
+        }      
     }
 }
