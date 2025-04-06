@@ -1,11 +1,12 @@
 using System.Runtime.InteropServices;
 using System.Globalization;
+using System.Diagnostics.CodeAnalysis;
 
 public class Moves
 {
     private int MOVE_NAME = 0;
     private int PHY_SPE = 1; // Checks if the move is a physical or special attack 
-    // private int ATTCK_TYPE = 2;
+    private int ATTCK_TYPE = 2;
     private int POWER = 3;
     private int ACCURACY = 4;
     List<string> _moves = new List<string>();
@@ -37,7 +38,7 @@ public class Moves
             _moves.Add("Solar Beam;spe;grass;120;80");
             _moves.Add("Petal Blizzard;phy;grass;90;95");
             _moves.Add("Sludge Bomb;spe;poison;90;95");
-            _moves.Add("Poison Jab;spe;poison;80;95");
+            _moves.Add("Poison Jab;spe;oison;80;95");
         }
     }
 
@@ -46,6 +47,7 @@ public class Moves
         // this inital part will list all the moves and let you select one
         string theMove = "";
         Console.WriteLine("Select what move you would like to use by typing the name or the number associated with it.");
+        Thread.Sleep(300);
         while (theMove == "")
         {
             int counter = 1;
@@ -53,6 +55,7 @@ public class Moves
             {
                 string[] new_line = line.Split(';');
                 Console.WriteLine($"{counter}. {new_line[MOVE_NAME]}");
+                Thread.Sleep(300);
                 _moveNames.Add(new_line[MOVE_NAME]);
                 counter += 1;
             }
@@ -109,6 +112,20 @@ public class Moves
             counter += 1;
         }
         return chosenMove;
+    }
+
+    public string GetMoveType(string moveName)
+    {
+        string type = "";
+        foreach (string line in _moves)
+        {
+            string[] new_line = line.Split(';');
+            if (new_line[MOVE_NAME] == moveName)
+            {
+                type = new_line[ATTCK_TYPE];
+            }
+        }
+        return type;
     }
 
     public string GetPhysicalOrSpecial(string moveName)
